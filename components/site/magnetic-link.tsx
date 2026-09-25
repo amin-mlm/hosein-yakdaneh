@@ -34,7 +34,7 @@ export function MagneticLink({ href, children, variant = 'solid', className }: M
       onPointerMove={handleMove}
       onPointerLeave={handleLeave}
       className={cn(
-        'inline-flex items-center justify-center gap-3 rounded-full px-7 py-3.5 text-xs font-semibold uppercase tracking-[0.2em] transition-[transform,background-color,color,border-color] duration-500 ease-out focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold',
+        'inline-flex items-center justify-center gap-3 rounded-full px-7 py-3.5 text-sm font-medium transition-[transform,background-color,color,border-color] duration-500 ease-out focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold',
         variant === 'solid'
           ? 'bg-gold text-primary-foreground hover:bg-stone'
           : 'border border-foreground/25 text-foreground backdrop-blur-md hover:border-gold hover:text-gold',

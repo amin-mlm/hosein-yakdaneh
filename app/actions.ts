@@ -13,17 +13,17 @@ export async function submitInquiry(_prev: ContactState, formData: FormData): Pr
   const message = String(formData.get('message') ?? '').trim()
 
   if (name.length < 2 || name.length > 100) {
-    return { status: 'error', message: 'Please enter your full name.' }
+    return { status: 'error', message: 'لطفاً نام و نام خانوادگی خود را وارد کنید.' }
   }
   if (!EMAIL_PATTERN.test(email) || email.length > 200) {
-    return { status: 'error', message: 'Please enter a valid email address.' }
+    return { status: 'error', message: 'لطفاً یک نشانی ایمیل معتبر وارد کنید.' }
   }
   if (message.length < 10 || message.length > 3000) {
-    return { status: 'error', message: 'Please tell us a little more about your project.' }
+    return { status: 'error', message: 'لطفاً کمی بیشتر درباره پروژه‌تان بنویسید.' }
   }
 
   return {
     status: 'success',
-    message: `Thank you, ${name.split(' ')[0]}. The studio will be in touch within two business days.`,
+    message: `سپاس از شما، ${name.split(' ')[0]}. استودیو ظرف دو روز کاری با شما تماس خواهد گرفت.`,
   }
 }

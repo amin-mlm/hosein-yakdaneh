@@ -1,12 +1,13 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
+import { toFa } from '@/lib/fa'
 
 const stats = [
-  { value: 180, suffix: '+', label: 'Projects Completed' },
-  { value: 15, suffix: '', label: 'Years of Experience' },
-  { value: 140, suffix: '+', label: 'Happy Clients' },
-  { value: 320, suffix: '', label: 'Site Supervisions' },
+  { value: 180, suffix: '+', label: 'پروژه اجراشده' },
+  { value: 15, suffix: '', label: 'سال تجربه' },
+  { value: 140, suffix: '+', label: 'کارفرمای راضی' },
+  { value: 320, suffix: '', label: 'نظارت کارگاهی' },
 ]
 
 function Counter({ value, suffix }: { value: number; suffix: string }) {
@@ -47,11 +48,11 @@ function Counter({ value, suffix }: { value: number; suffix: string }) {
   return (
     <span ref={ref} className="tabular-nums">
       <span aria-hidden="true">
-        {display}
+        {toFa(display)}
         {suffix}
       </span>
       <span className="sr-only">
-        {value}
+        {toFa(value)}
         {suffix}
       </span>
     </span>
@@ -60,15 +61,15 @@ function Counter({ value, suffix }: { value: number; suffix: string }) {
 
 export function Stats() {
   return (
-    <section aria-label="Studio statistics" className="border-y border-border">
+    <section aria-label="آمار استودیو" className="border-y border-border">
       <dl className="mx-auto grid max-w-7xl grid-cols-2 lg:grid-cols-4">
         {stats.map((s, i) => (
           <div
             key={s.label}
-            className={`flex flex-col gap-3 px-6 py-14 lg:px-10 lg:py-20 ${i % 2 === 1 ? 'border-l border-border' : ''} ${i > 1 ? 'border-t border-border lg:border-t-0' : ''} ${i === 2 ? 'lg:border-l' : ''}`}
+            className={`flex flex-col gap-3 px-6 py-14 lg:px-10 lg:py-20 ${i % 2 === 1 ? 'border-s border-border' : ''} ${i > 1 ? 'border-t border-border lg:border-t-0' : ''} ${i === 2 ? 'lg:border-s' : ''}`}
           >
-            <dt className="order-2 text-[0.7rem] uppercase tracking-[0.25em] text-muted-foreground">{s.label}</dt>
-            <dd className="order-1 font-serif text-5xl font-light text-gold md:text-7xl">
+            <dt className="order-2 text-sm text-muted-foreground">{s.label}</dt>
+            <dd className="order-1 text-5xl font-extralight text-gold md:text-7xl">
               <Counter value={s.value} suffix={s.suffix} />
             </dd>
           </div>

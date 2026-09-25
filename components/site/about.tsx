@@ -1,19 +1,20 @@
 import Image from 'next/image'
+import { toFa } from '@/lib/fa'
 import { Reveal } from './reveal'
 import { SectionHeading } from './section-heading'
 
 const pillars = [
   {
-    title: 'Philosophy',
-    body: 'Restraint over ornament. We let natural stone, timber, and light carry the emotion of a space.',
+    title: 'فلسفه',
+    body: 'خویشتن‌داری به جای آرایه. اجازه می‌دهیم سنگ طبیعی، چوب و نور، احساس فضا را روایت کنند.',
   },
   {
-    title: 'Experience',
-    body: 'Over fifteen years delivering residences, offices, and retail interiors across Iran.',
+    title: 'تجربه',
+    body: 'بیش از پانزده سال طراحی و اجرای خانه‌ها، دفاتر اداری و فضاهای تجاری در سراسر ایران.',
   },
   {
-    title: 'Process',
-    body: 'One accountable team from concept and 3D visualization to execution and site supervision.',
+    title: 'فرایند',
+    body: 'یک تیم پاسخگو، از ایده و تصویرسازی سه‌بعدی تا اجرا و نظارت کارگاهی.',
   },
 ]
 
@@ -23,41 +24,42 @@ export function About() {
       <div className="mx-auto grid max-w-7xl gap-16 px-6 lg:grid-cols-12 lg:gap-20 lg:px-10">
         <div className="lg:col-span-5">
           <Reveal className="relative">
-            <div aria-hidden="true" className="absolute -bottom-5 -left-5 h-full w-full rounded-2xl border border-gold/30" />
+            <div aria-hidden="true" className="absolute -bottom-5 -start-5 h-full w-full rounded-2xl border border-gold/30" />
             <div className="relative overflow-hidden rounded-2xl ring-1 ring-foreground/10">
               <Image
                 src="/portrait.png"
-                alt="Portrait of Hosein Yekdaneh in the studio."
+                alt="تصویر حسین یکدانه در استودیو."
                 width={1122}
                 height={1402}
                 sizes="(min-width: 1024px) 38vw, 100vw"
                 className="h-auto w-full"
               />
             </div>
-            <div className="absolute -right-3 top-10 rounded-xl border border-foreground/10 bg-background/60 px-5 py-4 backdrop-blur-xl md:-right-8">
-              <p className="font-serif text-lg italic">Hosein Yekdaneh</p>
-              <p className="text-[0.65rem] uppercase tracking-[0.25em] text-muted-foreground">Founder &amp; Principal</p>
+            <div className="absolute -end-3 top-10 rounded-xl border border-foreground/10 bg-background/60 px-5 py-4 backdrop-blur-xl md:-end-8">
+              <p className="text-lg font-medium">حسین یکدانه</p>
+              <p className="mt-1 text-xs text-muted-foreground">بنیان‌گذار و مدیر طراحی</p>
             </div>
           </Reveal>
         </div>
 
         <div className="flex flex-col justify-center gap-12 lg:col-span-7">
           <SectionHeading
-            index="01"
-            eyebrow="The Studio"
+            index="۰۱"
+            eyebrow="استودیو"
             title={
               <span id="about-title">
-                Architecture that feels <em className="text-gold">inevitable</em>, crafted to be lived in.
+                معماری‌ای چنان سنجیده که <em className="font-normal text-gold">ناگزیر</em> می‌نماید؛ ساخته برای
+                زیستن.
               </span>
             }
-            description="We began as a small atelier obsessed with how a room changes from morning to night. Today we design, build, and supervise complete environments, yet every project still starts with the same question: how should this space make you feel?"
+            description="کارمان را به‌عنوان آتلیه‌ای کوچک آغاز کردیم؛ شیفته‌ی این‌که یک اتاق از صبح تا شب چگونه دگرگون می‌شود. امروز محیط‌هایی کامل را طراحی، اجرا و نظارت می‌کنیم، اما هر پروژه هنوز با همان پرسش آغاز می‌شود: این فضا باید چه حسی به شما بدهد؟"
           />
           <div className="grid gap-px overflow-hidden rounded-2xl border border-border bg-border sm:grid-cols-3">
             {pillars.map((pillar, i) => (
               <Reveal key={pillar.title} delay={i * 120} className="bg-background p-7">
-                <p className="font-serif text-sm italic text-gold">0{i + 1}</p>
-                <h3 className="mt-3 font-serif text-2xl">{pillar.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{pillar.body}</p>
+                <p className="text-sm text-gold">{toFa(`0${i + 1}`)}</p>
+                <h3 className="mt-3 text-2xl font-light">{pillar.title}</h3>
+                <p className="mt-3 text-sm leading-loose text-muted-foreground">{pillar.body}</p>
               </Reveal>
             ))}
           </div>

@@ -5,8 +5,8 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --font-sans: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
-  --font-serif: var(--font-cormorant), ui-serif, Georgia, serif;
+  --font-sans: var(--font-vazirmatn), Vazirmatn, Arial, sans-serif;
+  --font-serif: var(--font-vazirmatn), Vazirmatn, Arial, sans-serif;
   --color-gold: var(--gold);
   --color-stone: var(--stone);
   --color-ring: var(--ring);
@@ -68,6 +68,9 @@
   }
   body {
     @apply bg-background text-foreground font-sans;
+  }
+  em {
+    font-style: normal;
   }
   ::selection {
     background: oklch(0.78 0.085 80 / 35%);

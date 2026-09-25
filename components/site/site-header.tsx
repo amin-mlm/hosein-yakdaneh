@@ -28,18 +28,18 @@ export function SiteHeader() {
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 lg:px-10">
         <Wordmark />
-        <nav aria-label="Primary" className="hidden md:block">
+        <nav aria-label="ناوبری اصلی" className="hidden md:block">
           <ul className="flex items-center gap-9">
             {navLinks.map((link) => (
               <li key={link.href}>
                 <a
                   href={link.href}
-                  className="group relative text-xs uppercase tracking-[0.22em] text-foreground/80 transition-colors hover:text-foreground"
+                  className="group relative text-sm text-foreground/80 transition-colors hover:text-foreground"
                 >
                   {link.label}
                   <span
                     aria-hidden="true"
-                    className="absolute -bottom-1.5 left-0 h-px w-full origin-left scale-x-0 bg-gold transition-transform duration-500 group-hover:scale-x-100"
+                    className="absolute -bottom-1.5 start-0 h-px w-full origin-right scale-x-0 bg-gold transition-transform duration-500 group-hover:scale-x-100"
                   />
                 </a>
               </li>
@@ -48,9 +48,9 @@ export function SiteHeader() {
         </nav>
         <a
           href="#contact"
-          className="hidden rounded-full border border-gold/50 px-5 py-2.5 text-xs uppercase tracking-[0.2em] text-gold transition-colors hover:bg-gold hover:text-primary-foreground md:inline-flex"
+          className="hidden rounded-full border border-gold/50 px-5 py-2.5 text-sm text-gold transition-colors hover:bg-gold hover:text-primary-foreground md:inline-flex"
         >
-          Book a Consultation
+          رزرو جلسه مشاوره
         </a>
         <button
           type="button"
@@ -60,18 +60,18 @@ export function SiteHeader() {
           onClick={() => setOpen((v) => !v)}
         >
           {open ? <X className="size-4" /> : <Menu className="size-4" />}
-          <span className="sr-only">{open ? 'Close menu' : 'Open menu'}</span>
+          <span className="sr-only">{open ? 'بستن منو' : 'باز کردن منو'}</span>
         </button>
       </div>
       {open ? (
-        <nav id="mobile-nav" aria-label="Mobile" className="px-6 pb-6 pt-4 md:hidden">
+        <nav id="mobile-nav" aria-label="ناوبری موبایل" className="px-6 pb-6 pt-4 md:hidden">
           <ul className="flex flex-col gap-1">
             {navLinks.map((link) => (
               <li key={link.href}>
                 <a
                   href={link.href}
                   onClick={() => setOpen(false)}
-                  className="block border-b border-border py-4 font-serif text-2xl"
+                  className="block border-b border-border py-4 text-2xl font-light"
                 >
                   {link.label}
                 </a>

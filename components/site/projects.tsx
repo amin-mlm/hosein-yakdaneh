@@ -2,12 +2,12 @@
 
 import Image from 'next/image'
 import { useMemo, useRef, useState, useSyncExternalStore } from 'react'
-import { ArrowUpRight, X } from 'lucide-react'
+import { ArrowUpLeft, X } from 'lucide-react'
 import { categories, projects, type Category, type Project } from '@/lib/projects'
 import { cn } from '@/lib/utils'
 import { SectionHeading } from './section-heading'
 
-type Filter = 'All' | Category
+type Filter = 'همه' | Category
 
 function subscribe(callback: () => void) {
   window.addEventListener('resize', callback)
@@ -33,13 +33,13 @@ function chunkRows(items: Project[], perRow: number) {
 }
 
 export function Projects() {
-  const [filter, setFilter] = useState<Filter>('All')
+  const [filter, setFilter] = useState<Filter>('همه')
   const [active, setActive] = useState<Project | null>(null)
   const dialogRef = useRef<HTMLDialogElement>(null)
   const columnCount = useColumnCount()
 
   const visible = useMemo(
-    () => (filter === 'All' ? projects : projects.filter((p) => p.categories.includes(filter))),
+    () => (filter === 'همه' ? projects : projects.filter((p) => p.categories.includes(filter))),
     [filter],
   )
   const rows = useMemo(() => chunkRows(visible, columnCount), [visible, columnCount])
@@ -59,24 +59,24 @@ export function Projects() {
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
         <div className="flex flex-col justify-between gap-10 lg:flex-row lg:items-end">
           <SectionHeading
-            index="03"
-            eyebrow="Featured Projects"
+            index="۰۳"
+            eyebrow="پروژه‌های برگزیده"
             title={
               <span id="projects-title">
-                Selected <em className="text-gold">works</em>
+                آثار <em className="font-normal text-gold">منتخب</em>
               </span>
             }
-            description="Each image is shown in its original frame, exactly as composed, so proportion, light, and detail read as intended."
+            description="هر تصویر در قاب اصلی خود و دقیقاً همان‌گونه که ترکیب‌بندی شده نمایش داده می‌شود تا تناسب، نور و جزئیات همان‌طور که باید خوانده شوند."
           />
-          <div role="group" aria-label="Filter projects by category" className="flex flex-wrap gap-2">
-            {(['All', ...categories] as Filter[]).map((item) => (
+          <div role="group" aria-label="فیلتر پروژه‌ها بر اساس دسته‌بندی" className="flex flex-wrap gap-2">
+            {(['همه', ...categories] as Filter[]).map((item) => (
               <button
                 key={item}
                 type="button"
                 aria-pressed={filter === item}
                 onClick={() => setFilter(item)}
                 className={cn(
-                  'rounded-full border px-4 py-2 text-[0.7rem] uppercase tracking-[0.2em] transition-colors duration-300',
+                  'rounded-full border px-4 py-2 text-sm transition-colors duration-300',
                   filter === item
                     ? 'border-gold bg-gold text-primary-foreground'
                     : 'border-border text-muted-foreground hover:border-gold/50 hover:text-foreground',
@@ -103,7 +103,7 @@ export function Projects() {
           ))}
         </div>
         {visible.length === 0 ? (
-          <p className="mt-10 text-center text-muted-foreground">New projects in this category are coming soon.</p>
+          <p className="mt-10 text-center text-muted-foreground">پروژه‌های تازه این دسته به‌زودی افزوده می‌شوند.</p>
         ) : null}
       </div>
 
@@ -132,28 +132,28 @@ export function Projects() {
               <button
                 type="button"
                 onClick={closeProject}
-                className="absolute right-4 top-4 inline-flex size-9 items-center justify-center rounded-full border border-border transition-colors hover:border-gold hover:text-gold"
+                className="absolute end-4 top-4 inline-flex size-9 items-center justify-center rounded-full border border-border transition-colors hover:border-gold hover:text-gold"
               >
                 <X className="size-4" aria-hidden="true" />
-                <span className="sr-only">Close project</span>
+                <span className="sr-only">بستن پروژه</span>
               </button>
-              <p className="text-[0.65rem] uppercase tracking-[0.3em] text-gold">{active.categories.join(' · ')}</p>
-              <h3 id="project-dialog-title" className="-mt-2 font-serif text-4xl font-light">
+              <p className="text-sm text-gold">{active.categories.join(' · ')}</p>
+              <h3 id="project-dialog-title" className="-mt-2 text-3xl font-light leading-snug">
                 {active.title}
               </h3>
-              <p className="leading-relaxed text-muted-foreground">{active.description}</p>
+              <p className="leading-loose text-muted-foreground">{active.description}</p>
               <dl className="grid grid-cols-2 gap-4 border-y border-border py-5 text-sm">
                 <div>
-                  <dt className="text-[0.65rem] uppercase tracking-[0.25em] text-muted-foreground">Location</dt>
+                  <dt className="text-xs text-muted-foreground">موقعیت</dt>
                   <dd className="mt-1">{active.location}</dd>
                 </div>
                 <div>
-                  <dt className="text-[0.65rem] uppercase tracking-[0.25em] text-muted-foreground">Year</dt>
+                  <dt className="text-xs text-muted-foreground">سال</dt>
                   <dd className="mt-1">{active.year}</dd>
                 </div>
               </dl>
               <div>
-                <p className="text-[0.65rem] uppercase tracking-[0.25em] text-muted-foreground">Materials</p>
+                <p className="text-xs text-muted-foreground">متریال‌ها</p>
                 <ul className="mt-3 flex flex-wrap gap-2">
                   {active.materials.map((m) => (
                     <li key={m} className="rounded-full border border-gold/30 px-3 py-1 text-xs text-stone">
@@ -176,9 +176,9 @@ function ProjectCard({ project, delay, onOpen }: { project: Project; delay: numb
       type="button"
       onClick={onOpen}
       style={{ animationDelay: `${delay}ms` }}
-      className="group relative block w-full overflow-hidden rounded-2xl text-left ring-1 ring-foreground/10 animate-in fade-in slide-in-from-bottom-6 duration-700 fill-mode-both focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold"
+      className="group relative block w-full overflow-hidden rounded-2xl text-start ring-1 ring-foreground/10 animate-in fade-in slide-in-from-bottom-6 duration-700 fill-mode-both focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold"
     >
-      <span className="sr-only">Open project: </span>
+      <span className="sr-only">مشاهده پروژه: </span>
       <Image
         src={project.image}
         alt={project.alt}
@@ -194,13 +194,13 @@ function ProjectCard({ project, delay, onOpen }: { project: Project; delay: numb
       />
       <span className="absolute inset-x-0 bottom-0 flex translate-y-4 items-end justify-between gap-4 p-5 opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100 group-focus-visible:translate-y-0 group-focus-visible:opacity-100 md:p-6 [@media(hover:none)]:translate-y-0 [@media(hover:none)]:opacity-100">
         <span>
-          <span className="block text-[0.6rem] uppercase tracking-[0.3em] text-gold">
+          <span className="block text-xs text-gold">
             {project.subtitle} · {project.location}
           </span>
-          <span className="mt-1 block font-serif text-2xl md:text-3xl">{project.title}</span>
+          <span className="mt-1.5 block text-xl font-light md:text-2xl">{project.title}</span>
         </span>
         <span className="inline-flex size-10 shrink-0 items-center justify-center rounded-full bg-gold text-primary-foreground">
-          <ArrowUpRight className="size-4" aria-hidden="true" />
+          <ArrowUpLeft className="size-4" aria-hidden="true" />
         </span>
       </span>
     </button>
