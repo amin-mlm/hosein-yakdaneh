@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import { asset } from '@/lib/asset'
 import { toFa } from '@/lib/fa'
 import { Reveal } from './reveal'
 import { SectionHeading } from './section-heading'
@@ -27,7 +28,7 @@ export function About() {
             <div aria-hidden="true" className="absolute -bottom-5 -start-5 h-full w-full rounded-2xl border border-gold/30" />
             <div className="relative overflow-hidden rounded-2xl ring-1 ring-foreground/10">
               <Image
-                src="/portrait.png"
+                src={asset('/portrait.png')}
                 alt="تصویر حسین یکدانه در استودیو."
                 width={1122}
                 height={1402}

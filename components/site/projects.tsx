@@ -3,6 +3,7 @@
 import Image from 'next/image'
 import { useMemo, useRef, useState, useSyncExternalStore } from 'react'
 import { ArrowUpLeft, X } from 'lucide-react'
+import { asset } from '@/lib/asset'
 import { categories, projects, type Category, type Project } from '@/lib/projects'
 import { cn } from '@/lib/utils'
 import { SectionHeading } from './section-heading'
@@ -120,7 +121,7 @@ export function Projects() {
           <div className="grid lg:grid-cols-5">
             <div className="bg-background lg:col-span-3">
               <Image
-                src={active.image}
+                src={asset(active.image)}
                 alt={active.alt}
                 width={active.width}
                 height={active.height}
@@ -180,7 +181,7 @@ function ProjectCard({ project, delay, onOpen }: { project: Project; delay: numb
     >
       <span className="sr-only">مشاهده پروژه: </span>
       <Image
-        src={project.image}
+        src={asset(project.image)}
         alt={project.alt}
         width={project.width}
         height={project.height}

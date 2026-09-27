@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import { asset } from '@/lib/asset'
 import { toFa } from '@/lib/fa'
 import { Reveal } from './reveal'
 import { SectionHeading } from './section-heading'
@@ -36,7 +37,7 @@ export function CaseStudy() {
         <Reveal className="mt-14">
           <figure className="overflow-hidden rounded-2xl ring-1 ring-foreground/10">
             <Image
-              src="/projects/entry-hall.png"
+              src={asset('/projects/entry-hall.png')}
               alt="راهروی ورودی با قاب گردوی لبه‌طبیعی، پارتیشن ترکه‌ای عمودی، پنل‌های آینه تمام‌قد و کنسول سفید براق با تندیس طلایی ارابه."
               width={1080}
               height={764}
@@ -102,7 +103,7 @@ export function CaseStudy() {
               <figure className="group overflow-hidden rounded-xl ring-1 ring-foreground/10">
                 <div className="overflow-hidden">
                   <Image
-                    src={g.src}
+                    src={asset(g.src)}
                     alt={g.alt}
                     width={1080}
                     height={764}

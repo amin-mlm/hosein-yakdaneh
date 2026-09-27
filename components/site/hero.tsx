@@ -3,6 +3,7 @@
 import Image from 'next/image'
 import { useEffect, useRef } from 'react'
 import { ArrowLeft } from 'lucide-react'
+import { asset } from '@/lib/asset'
 import { MagneticLink } from './magnetic-link'
 
 export function Hero() {
@@ -50,7 +51,7 @@ export function Hero() {
         style={{ transform: 'translate3d(0, calc(var(--sy) * 0.3px), 0) scale(1.15)' }}
       >
         <Image
-          src="/projects/living-room.png"
+          src={asset('/projects/living-room.png')}
           alt=""
           fill
           priority
@@ -108,7 +109,7 @@ export function Hero() {
             />
             <figure className="relative overflow-hidden rounded-2xl shadow-[0_40px_120px_-30px_rgba(0,0,0,0.8)] ring-1 ring-foreground/10">
               <Image
-                src="/projects/living-room.png"
+                src={asset('/projects/living-room.png')}
                 alt="نشیمن اقامتگاه غروب با لوسترهای لوله‌ای برنجی و مشکی، دیوار تلویزیون از مرمر پورتورو و ترکه‌های گردو در برابر منظره غروب."
                 width={1080}
                 height={764}
@@ -131,7 +132,7 @@ export function Hero() {
           >
             <div className="animate-float-slow overflow-hidden rounded-xl shadow-[0_30px_80px_-20px_rgba(0,0,0,0.9)] ring-1 ring-foreground/15">
               <Image
-                src="/projects/kitchen.png"
+                src={asset('/projects/kitchen.png')}
                 alt="آشپزخانه آتلیه مرمر با جزیره آبشاری و چراغ‌های آویز."
                 width={1080}
                 height={764}

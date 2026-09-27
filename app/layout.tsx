@@ -1,4 +1,3 @@
-import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
 import { Vazirmatn } from 'next/font/google'
 import './globals.css'
@@ -12,6 +11,7 @@ const vazirmatn = Vazirmatn({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://amin-mlm.github.io/hosein-yakdaneh/'),
   title: 'حسین یکدانه | معمار و طراح داخلی',
   description:
     'طراحی، اجرا و نظارت فضاهای داخلی و نمای لوکس. فضاهایی که با متریال، نور و جزئیات معماری تعریف می‌شوند.',
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     title: 'حسین یکدانه | معمار و طراح داخلی',
     description: 'طراحی، اجرا و نظارت فضاهای داخلی و نمای لوکس.',
     locale: 'fa_IR',
-    images: ['/projects/living-room.png'],
+    images: ['projects/living-room.png'],
   },
 }
 
@@ -38,7 +38,6 @@ export default function RootLayout({
     <html lang="fa" dir="rtl" className={`${vazirmatn.variable} bg-background`}>
       <body className="antialiased">
         {children}
-        {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>
   )

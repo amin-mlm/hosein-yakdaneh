@@ -1,5 +1,3 @@
-'use server'
-
 export type ContactState = {
   status: 'idle' | 'success' | 'error'
   message: string
@@ -7,6 +5,9 @@ export type ContactState = {
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
+// This is a static site with no backend, so the inquiry is validated on the
+// client. Kept in the same shape as an action so it can be used with
+// `useActionState` from a client component.
 export async function submitInquiry(_prev: ContactState, formData: FormData): Promise<ContactState> {
   const name = String(formData.get('name') ?? '').trim()
   const email = String(formData.get('email') ?? '').trim()
