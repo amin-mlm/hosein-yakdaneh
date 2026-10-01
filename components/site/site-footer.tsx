@@ -1,4 +1,5 @@
 import { navLinks } from '@/lib/nav'
+import { ContactTrigger } from './contact-trigger'
 import { Wordmark } from './wordmark'
 
 export function SiteFooter() {
@@ -16,9 +17,15 @@ export function SiteFooter() {
             <ul className="flex flex-wrap gap-x-8 gap-y-3">
               {navLinks.map((link) => (
                 <li key={link.href}>
-                  <a href={link.href} className="text-sm text-muted-foreground transition-colors hover:text-gold">
-                    {link.label}
-                  </a>
+                  {link.href === '#contact' ? (
+                    <ContactTrigger className="text-sm text-muted-foreground transition-colors hover:text-gold">
+                      {link.label}
+                    </ContactTrigger>
+                  ) : (
+                    <a href={link.href} className="text-sm text-muted-foreground transition-colors hover:text-gold">
+                      {link.label}
+                    </a>
+                  )}
                 </li>
               ))}
             </ul>

@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from 'next'
 import { Vazirmatn } from 'next/font/google'
+import { ContactModal } from '@/components/site/contact-modal'
 import './globals.css'
 
 const vazirmatn = Vazirmatn({
@@ -38,6 +39,7 @@ export default function RootLayout({
     <html lang="fa" dir="rtl" className={`${vazirmatn.variable} bg-background`}>
       <body className="antialiased">
         {children}
+        <ContactModal />
       </body>
     </html>
   )

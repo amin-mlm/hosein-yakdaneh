@@ -3,14 +3,16 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [main]
+  # Allow running the deploy manually from the Actions tab.
   workflow_dispatch:
 
+# Required for the GitHub Pages deployment (OIDC + Pages publishing).
 permissions:
   contents: read
   pages: write
   id-token: write
 
-# Allow one concurrent deployment, but let in-progress runs finish.
+# Never run two deployments at once; let the running one finish.
 concurrency:
   group: pages
   cancel-in-progress: false
@@ -28,7 +30,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 24
+          node-version: 22
           cache: pnpm
 
       - name: Install dependencies

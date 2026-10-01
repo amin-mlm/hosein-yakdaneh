@@ -4,7 +4,12 @@ import { useEffect, useState } from 'react'
 import { Menu, X } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { navLinks } from '@/lib/nav'
+import { ContactTrigger } from './contact-trigger'
 import { Wordmark } from './wordmark'
+
+const underline =
+  'absolute -bottom-1.5 start-0 h-px w-full origin-right scale-x-0 bg-gold transition-transform duration-500 group-hover:scale-x-100'
+const navLinkClass = 'group relative text-sm text-foreground/80 transition-colors hover:text-foreground'
 
 export function SiteHeader() {
   const [scrolled, setScrolled] = useState(false)
@@ -32,26 +37,24 @@ export function SiteHeader() {
           <ul className="flex items-center gap-9">
             {navLinks.map((link) => (
               <li key={link.href}>
-                <a
-                  href={link.href}
-                  className="group relative text-sm text-foreground/80 transition-colors hover:text-foreground"
-                >
-                  {link.label}
-                  <span
-                    aria-hidden="true"
-                    className="absolute -bottom-1.5 start-0 h-px w-full origin-right scale-x-0 bg-gold transition-transform duration-500 group-hover:scale-x-100"
-                  />
-                </a>
+                {link.href === '#contact' ? (
+                  <ContactTrigger className={navLinkClass}>
+                    {link.label}
+                    <span aria-hidden="true" className={underline} />
+                  </ContactTrigger>
+                ) : (
+                  <a href={link.href} className={navLinkClass}>
+                    {link.label}
+                    <span aria-hidden="true" className={underline} />
+                  </a>
+                )}
               </li>
             ))}
           </ul>
         </nav>
-        <a
-          href="#contact"
-          className="hidden rounded-full border border-gold/50 px-5 py-2.5 text-sm text-gold transition-colors hover:bg-gold hover:text-primary-foreground md:inline-flex"
-        >
+        <ContactTrigger className="hidden rounded-full border border-gold/50 px-5 py-2.5 text-sm text-gold transition-colors hover:bg-gold hover:text-primary-foreground md:inline-flex">
           رزرو جلسه مشاوره
-        </a>
+        </ContactTrigger>
         <button
           type="button"
           className="inline-flex size-10 items-center justify-center rounded-full border border-border md:hidden"
@@ -68,13 +71,22 @@ export function SiteHeader() {
           <ul className="flex flex-col gap-1">
             {navLinks.map((link) => (
               <li key={link.href}>
-                <a
-                  href={link.href}
-                  onClick={() => setOpen(false)}
-                  className="block border-b border-border py-4 text-2xl font-light"
-                >
-                  {link.label}
-                </a>
+                {link.href === '#contact' ? (
+                  <ContactTrigger
+                    onClick={() => setOpen(false)}
+                    className="block w-full border-b border-border py-4 text-start text-2xl font-light"
+                  >
+                    {link.label}
+                  </ContactTrigger>
+                ) : (
+                  <a
+                    href={link.href}
+                    onClick={() => setOpen(false)}
+                    className="block border-b border-border py-4 text-2xl font-light"
+                  >
+                    {link.label}
+                  </a>
+                )}
               </li>
             ))}
           </ul>
