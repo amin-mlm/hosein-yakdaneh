@@ -18,15 +18,11 @@ export type ContactChannel = {
   external?: boolean
 }
 
-// NOTE: phone number, Instagram handle and address are placeholders taken from
-// the previous design — replace them with the real studio details.
-export const addressQuery = '35.6892,51.3890'
-
 export const contactChannels: ContactChannel[] = [
   {
     id: 'phone',
     label: 'تماس تلفنی',
-    value: '۰۹۱۲ ۰۰۰ ۰۰۰۰',
+    value: '۰۹۱۳ ۱۱۳ ۸۴۰۶',
     href: 'tel:+989120000000',
     hint: 'باز کردن برنامه تماس',
     ltr: true,
@@ -34,7 +30,7 @@ export const contactChannels: ContactChannel[] = [
   {
     id: 'sms',
     label: 'پیامک',
-    value: '۰۹۱۲ ۰۰۰ ۰۰۰۰',
+    value: '۰۹۱۳ ۱۱۳ ۸۴۰۶',
     href: 'sms:+989120000000',
     hint: 'ارسال پیام کوتاه',
     ltr: true,
@@ -42,17 +38,17 @@ export const contactChannels: ContactChannel[] = [
   {
     id: 'instagram',
     label: 'اینستاگرام',
-    value: '@hosein.yekdaneh',
-    href: 'https://instagram.com/hosein.yekdaneh',
+    value: '@hosein_yekdaneh',
+    href: 'https://www.instagram.com/hosein_yekdaneh',
     hint: 'نمونه‌کارها و پشت‌صحنه',
     ltr: true,
     external: true,
   },
   {
     id: 'address',
-    label: 'نشانی استودیو',
-    value: 'تهران، ایران',
-    href: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(addressQuery)}`,
+    label: 'نشانی شرکت',
+    value: 'اصفهان، شهید باهنر، بین گلبرگ و هدایت',
+    href: 'https://nshn.ir/25_bZ6VQPxai3i',
     hint: 'مسیریابی در نقشه',
   },
 ]
