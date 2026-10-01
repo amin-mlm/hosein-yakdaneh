@@ -69,7 +69,7 @@ export function Stats() {
             className={`flex flex-col gap-3 px-6 py-14 lg:px-10 lg:py-20 ${i % 2 === 1 ? 'border-s border-border' : ''} ${i > 1 ? 'border-t border-border lg:border-t-0' : ''} ${i === 2 ? 'lg:border-s' : ''}`}
           >
             <dt className="order-2 text-sm text-muted-foreground">{s.label}</dt>
-            <dd className="order-1 text-5xl font-extralight text-gold md:text-7xl">
+            <dd className="order-1 text-5xl font-bold text-gold md:text-7xl">
               <Counter value={s.value} suffix={s.suffix} />
             </dd>
           </div>

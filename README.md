@@ -69,12 +69,8 @@ All phone numbers, the Instagram handle and the address live in one place:
 [`lib/contact.ts`](lib/contact.ts). Update `contactChannels` there and the modal
 updates everywhere.
 
-> ⚠️ The phone number (`+989120000000`), the Instagram handle and the map
-> coordinates in `lib/contact.ts` are **placeholders** carried over from the
-> previous design. Replace them with the real studio details before publishing.
-
-The map link uses `addressQuery` (a `lat,lng` string). On iOS the modal swaps to
-an Apple Maps URL automatically so the native app opens.
+The address uses a [Neshan](https://nshn.ir) share URL that opens the location in
+the user's maps app.
 
 ## Hero scroll animation
 

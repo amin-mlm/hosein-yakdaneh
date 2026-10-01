@@ -1,8 +1,8 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef } from 'react'
 import { Camera as Instagram, MapPin, MessageSquare, Phone, X } from 'lucide-react'
-import { CONTACT_EVENT, addressQuery, contactChannels } from '@/lib/contact'
+import { CONTACT_EVENT, contactChannels } from '@/lib/contact'
 import { cn } from '@/lib/utils'
 
 const icons = [Phone, MessageSquare, Instagram, MapPin]
@@ -12,21 +12,6 @@ const itemClass =
 
 export function ContactModal() {
   const dialogRef = useRef<HTMLDialogElement>(null)
-  const [mapHref, setMapHref] = useState(
-    contactChannels.find((channel) => channel.id === 'address')?.href ?? '',
-  )
-
-  // Prefer Apple Maps on iOS so the link opens the native Maps app.
-  useEffect(() => {
-    const isIOS =
-      /iPad|iPhone|iPod/.test(navigator.userAgent) ||
-      (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)
-    if (isIOS) {
-      setMapHref(
-        `https://maps.apple.com/?ll=${encodeURIComponent(addressQuery)}&q=${encodeURIComponent('استودیو حسین یکدانه')}`,
-      )
-    }
-  }, [])
 
   useEffect(() => {
     const dialog = dialogRef.current
@@ -45,7 +30,6 @@ export function ContactModal() {
   const channels = contactChannels.map((channel, index) => ({
     ...channel,
     icon: icons[index] ?? Phone,
-    href: channel.id === 'address' ? mapHref : channel.href,
   }))
 
   return (

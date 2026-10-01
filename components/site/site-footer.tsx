@@ -8,10 +8,7 @@ export function SiteFooter() {
   return (
     <footer className="border-t border-border">
       <div className="mx-auto max-w-7xl px-6 py-16 lg:px-10">
-        <p className="text-balance text-5xl font-extralight leading-snug md:text-8xl md:leading-snug">
-          ساخته‌شده با <em className="font-normal text-gold">اندیشه</em>.
-        </p>
-        <div className="mt-16 flex flex-col justify-between gap-10 border-t border-border pt-10 md:flex-row md:items-center">
+        <div className="flex flex-col justify-between gap-10 md:flex-row md:items-center">
           <Wordmark />
           <nav aria-label="ناوبری پانویس">
             <ul className="flex flex-wrap gap-x-8 gap-y-3">
