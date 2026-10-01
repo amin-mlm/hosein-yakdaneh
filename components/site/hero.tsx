@@ -156,11 +156,11 @@ export function Hero() {
               id="hero-title"
               className="mt-7 text-balance text-4xl font-extralight leading-[1.35] sm:text-5xl xl:text-6xl"
             >
-              فضاهایی که با <em className="font-normal text-gold">متریال</em>، نور و دقتی آرام شکل می‌گیرند.
+              فضاهایی که با <em className="font-normal text-gold">متریال</em>، نور و جزئیاتِ دقیق شکل می‌گیرند.
             </h1>
             <p className="mt-7 max-w-lg text-pretty leading-loose text-muted-foreground">
-              استودیوی معماری و طراحی داخلی حسین یکدانه، خانه‌ها و فضاهای کاری را از نخستین طرح تا تحویل نهایی
-              خلق می‌کند؛ هر جزئیات به دست تیم خودمان طراحی، اجرا و نظارت می‌شود.
+              استودیوی معماری و طراحی داخلی حسین یکدانه، از نخستین ایده تا تحویل نهایی همراه شماست؛ طراحی،
+              اجرا و نظارت را تیم خودمان بر عهده می‌گیرد.
             </p>
             <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
               <MagneticLink href="#projects">

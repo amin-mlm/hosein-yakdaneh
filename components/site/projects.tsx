@@ -67,7 +67,7 @@ export function Projects() {
                 آثار <em className="font-normal text-gold">منتخب</em>
               </span>
             }
-            description="هر تصویر در قاب اصلی خود و دقیقاً همان‌گونه که ترکیب‌بندی شده نمایش داده می‌شود تا تناسب، نور و جزئیات همان‌طور که باید خوانده شوند."
+            description="گزیده‌ای از پروژه‌های مسکونی، تجاری و اداری؛ هر پروژه با تمرکز بر تناسب، نور و کیفیت اجرا."
           />
           <div role="group" aria-label="فیلتر پروژه‌ها بر اساس دسته‌بندی" className="flex flex-wrap gap-2">
             {(['همه', ...categories] as Filter[]).map((item) => (

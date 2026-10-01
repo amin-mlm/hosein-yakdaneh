@@ -23,7 +23,7 @@ export function Services() {
             title={<span id="services-title">رویکردی جامع، از ایده تا تحویل.</span>}
           />
           <Reveal className="max-w-sm text-sm leading-loose text-muted-foreground">
-            ما را برای یک تخصص یا تمام مسیر همراه کنید؛ در هر حال، یک استودیو پاسخگوی نتیجه خواهد بود.
+          از نخستین ایده تا تحویل کلید همراه شما هستیم
           </Reveal>
         </div>
 

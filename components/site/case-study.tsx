@@ -51,8 +51,8 @@ export function CaseStudy() {
           <Reveal className="lg:col-span-5">
             <h3 className="text-sm text-gold">نمای کلی</h3>
             <p className="mt-5 text-pretty text-xl font-light leading-loose md:text-2xl md:leading-loose">
-              آپارتمانی قدیمی که به گالری پیوسته‌ای از متریال‌ها بدل شد؛ جایی که گردو، مرمر و آینه از ورودی تا
-              آشپزخانه و نشیمن جریان دارند.
+              آپارتمانی قدیمی که به روایتی پیوسته از متریال‌ها بدل شد؛ جایی که گردو، مرمر و آینه از ورودی تا
+              آشپزخانه و نشیمن ادامه می‌یابند.
             </p>
             <p className="mt-6 leading-loose text-muted-foreground">
               دیوارها برداشته شدند تا آشپزخانه به فضای نشیمن بپیوندد و پارتیشنی آینه‌ای اکنون نور ورودی را دوچندان

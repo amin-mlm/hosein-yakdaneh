@@ -15,11 +15,11 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://amin-mlm.github.io/hosein-yakdaneh/'),
   title: 'حسین یکدانه | معمار و طراح داخلی',
   description:
-    'طراحی، اجرا و نظارت فضاهای داخلی و نمای لوکس. فضاهایی که با متریال، نور و جزئیات معماری تعریف می‌شوند.',
+    'استودیوی معماری و طراحی داخلی حسین یکدانه؛ طراحی، اجرا و نظارت فضاهای مسکونی، تجاری و اداری با تمرکز بر متریال، نور و کیفیت اجرا.',
   generator: 'v0.app',
   openGraph: {
     title: 'حسین یکدانه | معمار و طراح داخلی',
-    description: 'طراحی، اجرا و نظارت فضاهای داخلی و نمای لوکس.',
+    description: 'طراحی، اجرا و نظارت فضاهای داخلی، نما و محوطه.',
     locale: 'fa_IR',
     images: ['projects/living-room.png'],
   },
