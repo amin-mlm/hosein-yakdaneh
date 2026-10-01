@@ -4,6 +4,7 @@ import Image from 'next/image'
 import { useEffect, useRef, useState, type CSSProperties } from 'react'
 import { ArrowLeft } from 'lucide-react'
 import { asset } from '@/lib/asset'
+import { cn } from '@/lib/utils'
 import { ContactTrigger } from './contact-trigger'
 import { MagneticLink } from './magnetic-link'
 
@@ -11,6 +12,7 @@ const REVEAL_AT = 0.8
 
 export function Hero() {
   const ref = useRef<HTMLElement>(null)
+  const stickyRef = useRef<HTMLDivElement>(null)
   const [revealed, setRevealed] = useState(false)
   const [reduced, setReduced] = useState(false)
 
@@ -29,10 +31,13 @@ export function Hero() {
     let frame = 0
     const update = () => {
       frame = 0
-      const distance = node.offsetHeight - window.innerHeight
+      // Measure against the sticky viewport height (not window.innerHeight) so
+      // mobile URL-bar resizing doesn't shift the scroll distance.
+      const viewport = stickyRef.current?.offsetHeight ?? window.innerHeight
+      const distance = node.offsetHeight - viewport
       // Finish expanding a little before the sticky section releases, so the
       // revealed copy sits still for a moment before the page continues.
-      const span = distance > 0 ? distance * 0.8 : 0
+      const span = distance > 0 ? distance * 0.85 : 0
       const progress = span > 0 ? Math.min(Math.max(window.scrollY / span, 0), 1) : 1
       node.style.setProperty('--p', progress.toFixed(4))
       setRevealed(progress > REVEAL_AT)
@@ -56,10 +61,16 @@ export function Hero() {
       id="top"
       ref={ref}
       aria-labelledby="hero-title"
-      className="relative isolate bg-background"
-      style={{ height: reduced ? 'auto' : '200svh', '--p': 0 } as CSSProperties}
+      className={cn(
+        'relative isolate bg-background',
+        reduced ? 'h-auto' : 'h-[130svh] sm:h-[170svh] lg:h-[190svh]',
+      )}
+      style={{ '--p': 0 } as CSSProperties}
     >
-      <div className="sticky top-0 flex h-svh w-full items-center justify-center overflow-hidden">
+      <div
+        ref={stickyRef}
+        className="sticky top-0 flex h-svh w-full items-center justify-center overflow-hidden"
+      >
         {/* Full-bleed backdrop that fades away as the portrait expands. */}
         <div
           aria-hidden="true"
