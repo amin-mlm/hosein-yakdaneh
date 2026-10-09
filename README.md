@@ -56,12 +56,28 @@ Most SEO is driven by a few files:
 | Domain, name, title, description, keywords | `lib/site.ts` |
 | Title/description, canonical, Open Graph, Twitter, icons, robots, manifest link | `app/layout.tsx` |
 | `robots.txt` | `app/robots.ts` |
-| `sitemap.xml` | `app/sitemap.ts` |
+| `sitemap.xml` (homepage + service pages) | `app/sitemap.ts` |
 | `manifest.webmanifest` (PWA/installability) | `app/manifest.ts` |
-| JSON-LD structured data (WebSite, Person, ProfessionalService, FAQPage) | `components/site/structured-data.tsx` |
+| Site-wide JSON-LD (WebSite, Person, ProfessionalService) | `components/site/structured-data.tsx` |
 | Services (shown in the UI **and** structured data) | `lib/services.ts` |
 | FAQ (shown in the UI **and** structured data) | `lib/faq.ts` |
+| Service landing-page content | `lib/service-pages.ts` |
 | Social share image (1200×630) | `public/og-image.jpg` |
+
+### Pages
+
+- `/` — targets «گروه معماری اصفهان» (the «دفتر مهندسی» / «دفتر فنی مهندسی» terms are covered in the keywords and structured data only, not repeated in visible copy)
+- `/interior-design/` — طراحی داخلی در اصفهان
+- `/facade-landscape/` — طراحی نما و محوطه
+- `/execution-supervision/` — اجرا و نظارت / اجرای کلید در دست
+- `/renovation/` — بازسازی در اصفهان
+
+Each service page has its own `<title>`, meta description, canonical, Open Graph image
+(`public/og/*.jpg`), `Service` + `BreadcrumbList` + `FAQPage` structured data, and a
+visible breadcrumb. Editing a page is done entirely in `lib/service-pages.ts`.
+
+Internal linking: homepage service cards link to the matching page, the footer links
+all pages, and each service page links to related services.
 
 ### Google Search Console
 

@@ -1,7 +1,9 @@
 import type { Metadata, Viewport } from 'next'
 import { Vazirmatn } from 'next/font/google'
 import { ContactModal } from '@/components/site/contact-modal'
-import { StructuredData } from '@/components/site/structured-data'
+import { SiteFooter } from '@/components/site/site-footer'
+import { SiteHeader } from '@/components/site/site-header'
+import { SiteStructuredData } from '@/components/site/structured-data'
 import {
   ogImage,
   siteDescription,
@@ -35,9 +37,6 @@ export const metadata: Metadata = {
   publisher: siteName,
   category: 'معماری و طراحی داخلی',
   keywords: siteKeywords,
-  alternates: {
-    canonical: '/',
-  },
   openGraph: {
     type: 'website',
     url: '/',
@@ -66,8 +65,8 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: '/icon.svg', type: 'image/svg+xml' },
-      { url: '/icon-light-32x32.png', sizes: '32x32', type: 'image/png' },
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/icon-192.png', sizes: '192x192', type: 'image/png' },
     ],
     shortcut: ['/favicon.ico'],
     apple: [{ url: '/apple-icon.png', sizes: '180x180', type: 'image/png' }],
@@ -75,7 +74,7 @@ export const metadata: Metadata = {
   manifest: '/manifest.webmanifest',
   appleWebApp: {
     capable: true,
-    title: 'حسین یکدانه',
+    title: 'گروه معماری حسین یکدانه',
     statusBarStyle: 'black-translucent',
   },
   formatDetection: {
@@ -99,8 +98,10 @@ export default function RootLayout({
   return (
     <html lang="fa" dir="rtl" className={`${vazirmatn.variable} bg-background`}>
       <body className="antialiased">
-        <StructuredData />
+        <SiteStructuredData />
+        <SiteHeader />
         {children}
+        <SiteFooter />
         <ContactModal />
       </body>
     </html>

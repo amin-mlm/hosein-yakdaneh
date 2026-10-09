@@ -55,7 +55,7 @@ export function ContactModal() {
               <span>تماس</span>
             </div>
             <h2 id="contact-modal-title" className="mt-5 text-2xl font-light md:text-3xl">
-              راه‌های تماس با <em className="font-normal text-gold">خانه معماری</em>
+              راه‌های تماس با <em className="font-normal text-gold">گروه معماری</em>
             </h2>
             <p className="mt-4 max-w-sm text-sm leading-loose text-muted-foreground">
               از هر راهی که راحت‌ترید با ما در تماس باشید؛ برای هماهنگی جلسه مشاوره یا بازدید از پروژه‌ها.

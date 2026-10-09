@@ -1,4 +1,4 @@
-import { SiteHeader } from '@/components/site/site-header'
+import type { Metadata } from 'next'
 import { Hero } from '@/components/site/hero'
 import { About } from '@/components/site/about'
 import { Services } from '@/components/site/services'
@@ -8,24 +8,26 @@ import { Process } from '@/components/site/process'
 import { Stats } from '@/components/site/stats'
 import { Testimonials } from '@/components/site/testimonials'
 import { Faq } from '@/components/site/faq'
-import { SiteFooter } from '@/components/site/site-footer'
+import { FaqStructuredData } from '@/components/site/structured-data'
+import { faqs } from '@/lib/faq'
+
+export const metadata: Metadata = {
+  alternates: { canonical: '/' },
+}
 
 export default function Page() {
   return (
-    <>
-      <SiteHeader />
-      <main>
-        <Hero />
-        <About />
-        <Services />
-        <Projects />
-        <CaseStudy />
-        <Process />
-        <Stats />
-        <Testimonials />
-        <Faq />
-      </main>
-      <SiteFooter />
-    </>
+    <main>
+      <Hero />
+      <About />
+      <Services />
+      <Projects />
+      <CaseStudy />
+      <Process />
+      <Stats />
+      <Testimonials />
+      <Faq />
+      <FaqStructuredData faqs={faqs} />
+    </main>
   )
 }

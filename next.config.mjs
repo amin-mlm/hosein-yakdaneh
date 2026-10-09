@@ -11,7 +11,8 @@ const nextConfig = {
   // next/image optimization needs a server, which static hosting cannot run.
   images: {
     unoptimized: true,
-  }
+  },
+  allowedDevOrigins: ["192.168.100.3"]
 };
 
 export default nextConfig;
