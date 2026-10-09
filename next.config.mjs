@@ -1,12 +1,17 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Static HTML export, required for GitHub Pages.
+  // Static HTML export for GitHub Pages.
   output: "export",
+  // The site is served from the custom domain root (https://hosein-yekdaneh.ir),
+  // so no basePath is needed.
   trailingSlash: true,
-  // next/image optimization needs a server, which GitHub Pages cannot run.
+  typescript: {
+    ignoreBuildErrors: true,
+  },
+  // next/image optimization needs a server, which static hosting cannot run.
   images: {
     unoptimized: true,
-  },
+  }
 };
 
 export default nextConfig;

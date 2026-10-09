@@ -38,6 +38,10 @@ jobs:
 
       - name: Build static site
         run: pnpm build
+        env:
+          # Optional HTML-tag verification for Google Search Console.
+          # Set a repository variable named GOOGLE_SITE_VERIFICATION to enable it.
+          NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION: ${{ vars.GOOGLE_SITE_VERIFICATION }}
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5

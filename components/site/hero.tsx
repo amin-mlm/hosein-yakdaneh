@@ -78,7 +78,7 @@ export function Hero() {
           style={{ opacity: 'calc(1 - var(--p))' }}
         >
           <Image
-            src={asset('/projects/villa-exterior.png')}
+            src={asset('/projects/villa-exterior.webp')}
             alt=""
             fill
             priority
@@ -104,7 +104,7 @@ export function Hero() {
           }}
         >
           <Image
-            src={asset('/projects/living-room.png')}
+            src={asset('/projects/living-room.webp')}
             alt="نشیمن اقامتگاه غروب با لوسترهای لوله‌ای برنجی و مشکی، دیوار تلویزیون از مرمر پورتورو و ترکه‌های گردو در برابر منظره غروب."
             fill
             priority

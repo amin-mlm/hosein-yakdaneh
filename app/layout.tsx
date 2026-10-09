@@ -1,6 +1,15 @@
 import type { Metadata, Viewport } from 'next'
 import { Vazirmatn } from 'next/font/google'
 import { ContactModal } from '@/components/site/contact-modal'
+import { StructuredData } from '@/components/site/structured-data'
+import {
+  ogImage,
+  siteDescription,
+  siteKeywords,
+  siteName,
+  siteTitle,
+  siteUrl,
+} from '@/lib/site'
 import './globals.css'
 
 const vazirmatn = Vazirmatn({
@@ -11,18 +20,70 @@ const vazirmatn = Vazirmatn({
   fallback: ['Arial', 'sans-serif'],
 })
 
+const googleVerification = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
+
 export const metadata: Metadata = {
-  metadataBase: new URL('https://amin-mlm.github.io/hosein-yakdaneh/'),
-  title: 'حسین یکدانه | معمار و طراح داخلی',
-  description:
-    'استودیوی معماری و طراحی داخلی حسین یکدانه؛ طراحی، اجرا و نظارت فضاهای مسکونی، تجاری و اداری با تمرکز بر متریال، نور و کیفیت اجرا.',
-  generator: 'v0.app',
-  openGraph: {
-    title: 'حسین یکدانه | معمار و طراح داخلی',
-    description: 'طراحی، اجرا و نظارت فضاهای داخلی، نما و محوطه.',
-    locale: 'fa_IR',
-    images: ['projects/living-room.png'],
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: siteTitle,
+    template: '%s | حسین یکدانه',
   },
+  description: siteDescription,
+  applicationName: siteName,
+  authors: [{ name: 'حسین یکدانه', url: `${siteUrl}/` }],
+  creator: 'حسین یکدانه',
+  publisher: siteName,
+  category: 'معماری و طراحی داخلی',
+  keywords: siteKeywords,
+  alternates: {
+    canonical: '/',
+  },
+  openGraph: {
+    type: 'website',
+    url: '/',
+    siteName,
+    title: siteTitle,
+    description: siteDescription,
+    locale: 'fa_IR',
+    images: [{ url: ogImage.url, width: ogImage.width, height: ogImage.height, alt: ogImage.alt }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: siteTitle,
+    description: siteDescription,
+    images: [ogImage.url],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+      'max-video-preview': -1,
+    },
+  },
+  icons: {
+    icon: [
+      { url: '/icon.svg', type: 'image/svg+xml' },
+      { url: '/icon-light-32x32.png', sizes: '32x32', type: 'image/png' },
+    ],
+    shortcut: ['/favicon.ico'],
+    apple: [{ url: '/apple-icon.png', sizes: '180x180', type: 'image/png' }],
+  },
+  manifest: '/manifest.webmanifest',
+  appleWebApp: {
+    capable: true,
+    title: 'حسین یکدانه',
+    statusBarStyle: 'black-translucent',
+  },
+  formatDetection: {
+    telephone: false,
+    email: false,
+    address: false,
+  },
+  ...(googleVerification ? { verification: { google: googleVerification } } : {}),
 }
 
 export const viewport: Viewport = {
@@ -38,6 +99,7 @@ export default function RootLayout({
   return (
     <html lang="fa" dir="rtl" className={`${vazirmatn.variable} bg-background`}>
       <body className="antialiased">
+        <StructuredData />
         {children}
         <ContactModal />
       </body>

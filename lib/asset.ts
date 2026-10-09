@@ -1,6 +1,6 @@
-// When deployed to GitHub Pages the site lives under a sub-path
-// (e.g. /hosein-yakdaneh). `next/image` does not prepend `basePath` to
-// `unoptimized` images, so static assets in /public are prefixed manually.
+// Assets live at the site root (custom domain). This helper is kept as a single
+// place to prefix assets if the site is ever moved under a sub-path again
+// (e.g. via NEXT_PUBLIC_BASE_PATH).
 export const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? ''
 
 export function asset(path: string) {

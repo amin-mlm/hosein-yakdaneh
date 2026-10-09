@@ -7,6 +7,7 @@ import { CaseStudy } from '@/components/site/case-study'
 import { Process } from '@/components/site/process'
 import { Stats } from '@/components/site/stats'
 import { Testimonials } from '@/components/site/testimonials'
+import { Faq } from '@/components/site/faq'
 import { SiteFooter } from '@/components/site/site-footer'
 
 export default function Page() {
@@ -22,6 +23,7 @@ export default function Page() {
         <Process />
         <Stats />
         <Testimonials />
+        <Faq />
       </main>
       <SiteFooter />
     </>

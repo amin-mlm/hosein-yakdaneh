@@ -15,9 +15,9 @@ const servicesProvided = ['طراحی داخلی', 'تصویرسازی سه‌ب
 const materials = ['مرمر استاتواریو و پورتورو', 'گردو با لبه طبیعی', 'آینه آنتیک', 'برنج براشد', 'لاک مشکی']
 
 const gallery = [
-  { src: '/projects/living-room.png', alt: 'نشیمن با دیوار مرمر تلویزیون و لوسترهای لوله‌ای.', label: 'نشیمن' },
-  { src: '/projects/kitchen.png', alt: 'آشپزخانه با جزیره آبشاری مرمر.', label: 'آشپزخانه' },
-  { src: '/projects/entry-hall.png', alt: 'راهروی ورودی با ترکه‌های گردو و پنل‌های آینه.', label: 'ورودی' },
+  { src: '/projects/living-room.webp', alt: 'نشیمن با دیوار مرمر تلویزیون و لوسترهای لوله‌ای.', label: 'نشیمن' },
+  { src: '/projects/kitchen.webp', alt: 'آشپزخانه با جزیره آبشاری مرمر.', label: 'آشپزخانه' },
+  { src: '/projects/entry-hall.webp', alt: 'راهروی ورودی با ترکه‌های گردو و پنل‌های آینه.', label: 'ورودی' },
 ]
 
 export function CaseStudy() {
@@ -37,7 +37,7 @@ export function CaseStudy() {
         <Reveal className="mt-14">
           <figure className="overflow-hidden rounded-2xl ring-1 ring-foreground/10">
             <Image
-              src={asset('/projects/entry-hall.png')}
+              src={asset('/projects/entry-hall.webp')}
               alt="راهروی ورودی با قاب گردوی لبه‌طبیعی، پارتیشن ترکه‌ای عمودی، پنل‌های آینه تمام‌قد و کنسول سفید براق با تندیس طلایی ارابه."
               width={1080}
               height={764}

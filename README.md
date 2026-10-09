@@ -1,8 +1,9 @@
 # استودیو حسین یکدانه — وب‌سایت
 
 Landing page for the architecture & interior design studio, built with Next.js
-(App Router) and exported as a fully static site so it can be hosted on GitHub
-Pages. There is no backend.
+(App Router) and exported as a fully static site. There is no backend.
+
+Live at **https://hosein-yekdaneh.ir**.
 
 ## Requirements
 
@@ -16,7 +17,7 @@ pnpm install
 pnpm dev
 ```
 
-Open http://localhost:3000/hosein-yakdaneh/.
+Open http://localhost:3000/.
 
 ## Build the static site
 
@@ -24,32 +25,59 @@ Open http://localhost:3000/hosein-yakdaneh/.
 pnpm build
 ```
 
-The exported site is written to `out/`. To preview it under the same sub-path
-used in production:
+The exported site is written to `out/`. Preview it locally:
 
 ```bash
-mkdir -p /tmp/preview
-cp -r out /tmp/preview/hosein-yakdaneh
-cd /tmp/preview && python3 -m http.server 4321
-# open http://127.0.0.1:4321/hosein-yakdaneh/
+cd out && python3 -m http.server 4321
+# open http://127.0.0.1:4321/
 ```
 
-## GitHub Pages deployment
+## Deployment
 
 The workflow at `.github/workflows/deploy.yml` builds the site and publishes
 `out/` on every push to `main` (or when run manually from the Actions tab).
 
-One-time setup:
+- The site is served at the **custom domain root** `https://hosein-yekdaneh.ir`,
+  so `next.config.mjs` has **no `basePath`**.
+- `public/CNAME` contains `hosein-yekdaneh.ir` and must stay in sync with
+  `siteUrl` in `lib/site.ts` and with **Settings → Pages → Custom domain**.
+- One-time setup: **Settings → Pages → Build and deployment → Source =
+  GitHub Actions**.
 
-1. Repository **Settings → Pages**.
-2. Under **Build and deployment → Source**, choose **GitHub Actions**.
+> If the domain changes, update `lib/site.ts` (`siteUrl`), `public/CNAME`, and
+> the GitHub Pages custom-domain setting.
 
-The site is served at `https://amin-mlm.github.io/hosein-yakdaneh/`. The
-`basePath` in `next.config.mjs` is `hosein-yakdaneh` and must match the
-repository name.
+## SEO
 
-> If you later attach a custom domain (or rename the repository), update `repo`
-> at the top of `next.config.mjs`.
+Most SEO is driven by a few files:
+
+| What | Where |
+| --- | --- |
+| Domain, name, title, description, keywords | `lib/site.ts` |
+| Title/description, canonical, Open Graph, Twitter, icons, robots, manifest link | `app/layout.tsx` |
+| `robots.txt` | `app/robots.ts` |
+| `sitemap.xml` | `app/sitemap.ts` |
+| `manifest.webmanifest` (PWA/installability) | `app/manifest.ts` |
+| JSON-LD structured data (WebSite, Person, ProfessionalService, FAQPage) | `components/site/structured-data.tsx` |
+| Services (shown in the UI **and** structured data) | `lib/services.ts` |
+| FAQ (shown in the UI **and** structured data) | `lib/faq.ts` |
+| Social share image (1200×630) | `public/og-image.jpg` |
+
+### Google Search Console
+
+- **DNS/domain verification** (already done) is enough.
+- Optional HTML-tag verification: set a repository variable
+  `GOOGLE_SITE_VERIFICATION` (Settings → Secrets and variables → Actions →
+  Variables). The deploy workflow passes it to the build, which injects the
+  `<meta name="google-site-verification">` tag.
+- After deploying, submit `https://hosein-yekdaneh.ir/sitemap.xml` in Search
+  Console.
+
+### Images
+
+Project images are stored as WebP and total well under 1 MB (down from ~11 MB of
+PNG). When adding new images, export them as WebP (~80% quality) and keep the
+real pixel dimensions in `lib/projects.ts`, which are used for layout sizing.
 
 ## Contact popup
 
@@ -60,17 +88,13 @@ button) opens a modal with direct actions:
 - **تماس تلفنی** — opens the phone app (`tel:`)
 - **پیامک** — opens the SMS app (`sms:`)
 - **اینستاگرام** — opens the Instagram profile
-- **نشانی استودیو** — opens the maps app (Apple Maps on iOS, Google Maps
-  elsewhere)
+- **نشانی شرکت** — opens the address in the user's maps app
 
 ### Editing the details
 
 All phone numbers, the Instagram handle and the address live in one place:
-[`lib/contact.ts`](lib/contact.ts). Update `contactChannels` there and the modal
-updates everywhere.
-
-The address uses a [Neshan](https://nshn.ir) share URL that opens the location in
-the user's maps app.
+[`lib/contact.ts`](lib/contact.ts). Update `contactChannels` there and the modal,
+as well as the structured data, update everywhere.
 
 ## Hero scroll animation
 
