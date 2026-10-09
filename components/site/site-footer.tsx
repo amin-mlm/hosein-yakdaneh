@@ -28,7 +28,7 @@ export function SiteFooter() {
             </ul>
           </nav>
         </div>
-        <p className="mt-10 text-xs text-muted-foreground">{`© ${year} استودیو حسین یکدانه. تمامی حقوق محفوظ است.`}</p>
+        <p className="mt-10 text-xs text-muted-foreground">{`© ${year} گروه معماری حسین یکدانه. تمامی حقوق محفوظ است.`}</p>
       </div>
     </footer>
   )

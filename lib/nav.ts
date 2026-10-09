@@ -1,5 +1,5 @@
 export const navLinks = [
-  { href: '#about', label: 'استودیو' },
+  { href: '#about', label: 'گروه معماری' },
   { href: '#services', label: 'خدمات' },
   { href: '#projects', label: 'پروژه‌ها' },
   { href: '#process', label: 'فرایند' },

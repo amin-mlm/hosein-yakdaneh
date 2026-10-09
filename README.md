@@ -1,4 +1,4 @@
-# استودیو حسین یکدانه — وب‌سایت
+# گروه معماری حسین یکدانه — وب‌سایت
 
 Landing page for the architecture & interior design studio, built with Next.js
 (App Router) and exported as a fully static site. There is no backend.

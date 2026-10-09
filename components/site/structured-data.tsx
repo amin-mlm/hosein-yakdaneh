@@ -69,7 +69,7 @@ export function StructuredData() {
       ],
       hasOfferCatalog: {
         '@type': 'OfferCatalog',
-        name: 'خدمات استودیو',
+        name: 'خدمات گروه معماری',
         itemListElement: services.map((service, index) => ({
           '@type': 'Offer',
           position: index + 1,

@@ -61,7 +61,7 @@ function Counter({ value, suffix }: { value: number; suffix: string }) {
 
 export function Stats() {
   return (
-    <section aria-label="آمار استودیو" className="border-y border-border">
+    <section aria-label="آمار گروه معماری حسین یکدانه" className="border-y border-border">
       <dl className="mx-auto grid max-w-7xl grid-cols-2 lg:grid-cols-4">
         {stats.map((s, i) => (
           <div

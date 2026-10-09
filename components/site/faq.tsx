@@ -11,7 +11,7 @@ export function Faq() {
             index="۰۸"
             eyebrow="پرسش‌های پرتکرار"
             title={<span id="faq-title">پرسش‌ها و پاسخ‌ها.</span>}
-            description="پاسخ چند پرسش رایج درباره خدمات، محدوده فعالیت و روند همکاری با استودیو."
+            description="پاسخ چند پرسش رایج درباره خدمات، محدوده فعالیت و روند همکاری با گروه معماری حسین یکدانه."
           />
         </div>
         <Reveal className="lg:col-span-7">

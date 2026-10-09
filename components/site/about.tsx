@@ -29,7 +29,7 @@ export function About() {
             <div className="relative overflow-hidden rounded-2xl ring-1 ring-foreground/10">
               <Image
                 src={asset('/portrait.webp')}
-                alt="تصویر حسین یکدانه در استودیو."
+                alt="تصویر حسین یکدانه در گروه معماری."
                 width={1122}
                 height={1402}
                 sizes="(min-width: 1024px) 38vw, 100vw"
@@ -46,7 +46,7 @@ export function About() {
         <div className="flex flex-col justify-center gap-12 lg:col-span-7">
           <SectionHeading
             index="۰۱"
-            eyebrow="استودیو"
+            eyebrow="گروه معماری"
             title={
               <span id="about-title">
                 معماری‌ای سنجیده که برای <em className="font-normal text-gold">زیستن</em> طراحی می‌شود.
